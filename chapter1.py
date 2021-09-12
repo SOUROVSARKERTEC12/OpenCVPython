@@ -2,14 +2,14 @@ import cv2
 import numpy as np
 print("Package Imported")
 
-img = cv2.imread("Resources/Devil.jpg")
-print(img.shape)
-imgResize = cv2.resize(img, (400, 400)) # 1st width and 2nd height
-print(imgResize.shape)
+img = np.zeros((512, 512, 3), np.uint8)
+#print(img)
+#img[200:300, 100:300] = 255, 0, 0
 
-imgCropped = img[0:200, 200:500] # 1st height and 2nd width
+cv2.line(img,(0,0), (img.shape[1], img.shape[0]), (0,255,0),3)
+cv2.rectangle(img, (0,0),(250,350),(0,0,255),2)
+cv2.circle(img, (400,50), 30,(255,0,0),5)
+cv2.putText(img, "OPEN CV",(300, 200),cv2.FONT_HERSHEY_SIMPLEX, 1, (0,150,0),3)
 
 cv2.imshow("Image", img)
-cv2.imshow("Resize Image", imgResize)
-cv2.imshow("Cropped Image", imgCropped)
 cv2.waitKey(0)
